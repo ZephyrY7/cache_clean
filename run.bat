@@ -1,0 +1,1 @@
+powershell -ExecutionPolicy ByPass -File ".\manual_clean.ps1"
