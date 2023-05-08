@@ -33,10 +33,12 @@ function Remove-Cache{
                     Write-Warning "$($path+'\'+$file) in used, close the application and retry."
                     $Error.Clear()
                 }else{
-                    $Cachesize+= "{0:N2}" -f ($file.Length/1MB)
+                    $Cachesize+= $file.Length/1MB
                     $RemovedCache++
                 }
             }
+            #convert to 2 decimals
+            $CacheSize = "{0:N2}" -f $CacheSize
             # show how many files & file size that has been removed 
             Write-Host "Removed $RemovedCache $Name files, $CacheSize MB space saved." -ForegroundColor Cyan
         }else{
